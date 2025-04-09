@@ -1,0 +1,118 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ensure proper scaling on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRNA Mission Trip Guide</title>
+  </head>
+  <body>
+    <!-- Static header present on every page -->
+    <header>
+      <h1>CRNA Mission Trip Guide</h1>
+    </header>
+
+    <!-- Main Selection Page -->
+    <section id="selection-page">
+      <div class="selection-container">
+        <!-- Dropdown menu with optgroups for continents -->
+        <select id="countrySelect">
+          <option value="" disabled selected>Select Country</option>
+          <optgroup label="AFRICA">
+            <option value="Angola">Angola</option>
+            <option value="Benin">Benin</option>
+            <option value="Burundi">Burundi</option>
+            <option value="Cameroon">Cameroon</option>
+            <option value="Côte d’Ivoire">Côte d’Ivoire</option>
+            <option value="Ethiopia">Ethiopia</option>
+            <option value="Gabon">Gabon</option>
+            <option value="The Gambia">The Gambia</option>
+            <option value="Guinea">Guinea</option>
+            <option value="Guinea Bissau">Guinea Bissau</option>
+            <option value="Ghana">Ghana</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Liberia">Liberia</option>
+            <option value="Madagascar">Madagascar</option>
+            <option value="Malawi">Malawi</option>
+            <option value="Republic of the Congo">Republic of the Congo</option>
+            <option value="Rwanda">Rwanda</option>
+            <option value="Senegal">Senegal</option>
+            <option value="Sierra Leone">Sierra Leone</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Togo">Togo</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Zambia">Zambia</option>
+            <option value="Zimbabwe">Zimbabwe</option>
+          </optgroup>
+          <optgroup label="AMERICAS">
+            <option value="Argentina">Argentina</option>
+            <option value="Belize">Belize</option>
+            <option value="Bolivia">Bolivia</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Costa Rica">Costa Rica</option>
+            <option value="Dominican Republic">Dominican Republic</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="El Salvador">El Salvador</option>
+            <option value="Guatemala">Guatemala</option>
+            <option value="Guyana">Guyana</option>
+            <option value="Haiti">Haiti</option>
+            <option value="Honduras">Honduras</option>
+            <option value="Jamaica">Jamaica</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Nicaragua">Nicaragua</option>
+            <option value="Panama">Panama</option>
+            <option value="Peru">Peru</option>
+            <option value="Puerto Rico">Puerto Rico</option>
+            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+          </optgroup>
+          <optgroup label="ASIA">
+            <option value="Armenia">Armenia</option>
+            <option value="Bhutan">Bhutan</option>
+            <option value="Cambodia">Cambodia</option>
+            <option value="China">China</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Laos">Laos</option>
+            <option value="Nepal">Nepal</option>
+            <option value="Philippines">Philippines</option>
+            <option value="South Korea">South Korea</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Turkey">Turkey</option>
+            <option value="Vietnam">Vietnam</option>
+          </optgroup>
+          <optgroup label="EUROPE">
+            <option value="Estonia">Estonia</option>
+            <option value="Latvia">Latvia</option>
+            <option value="Lithuania">Lithuania</option>
+            <option value="Poland">Poland</option>
+            <option value="Russia">Russia</option>
+            <option value="Ukraine">Ukraine</option>
+          </optgroup>
+          <optgroup label="OCEANIA">
+            <option value="Fiji">Fiji</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Papua New Guinea">Papua New Guinea</option>
+            <option value="Samoa">Samoa</option>
+            <option value="Tokelau Islands">Tokelau Islands</option>
+            <option value="Tonga">Tonga</option>
+          </optgroup>
+        </select>
+        <!-- Search button remains fixed within container -->
+        <button id="searchButton" disabled>Search</button>
+      </div>
+    </section>
+
+    <!-- Result Page (hidden by default) -->
+    <section id="result-page" style="display: none;">
+      <div class="result-container">
+        <!-- The selected country name (will appear in bold, large font) -->
+        <h1 id="resultCountryName"></h1>
+        <!-- List that will contain all country details -->
+        <ul id="resultList"></ul>
+        <!-- Reset button to return to the selection page -->
+        <button id="resetButton">Reset</button>
+      </div>
+    </section>
+  </body>
+</html>

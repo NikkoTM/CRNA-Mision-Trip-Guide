@@ -1,0 +1,111 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Selection page with world background */
+#selection-page {
+  background-image: url('https://example.com/world-background.jpg'); /* Replace with a valid image URL */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container for selection controls */
+.selection-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+/* Dropdown styling */
+#countrySelect {
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Search button styling */
+#searchButton {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: grey;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Active search button styling */
+#searchButton.active {
+  background-color: green;
+  cursor: pointer;
+}
+
+/* Result page styling */
+#result-page {
+  padding: 20px;
+}
+
+/* Container for result content */
+.result-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Country name header on result page */
+#resultCountryName {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Result details list styling */
+#resultList {
+  list-style: none;
+  padding: 0;
+}
+
+/* List item styling */
+#resultList li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Grey text styling for "N/A" items */
+.grey-text {
+  color: grey;
+  text-decoration: none;
+  cursor: default;
+}
+
+/* Sub-item list styling for indented IFNA sub-items (centered) */
+.sub-item {
+  list-style: none;
+  padding-left: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .selection-container,
+  .result-container {
+    width: 90%;
+  }
+}
