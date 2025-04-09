@@ -1,22 +1,3 @@
-/******************************************************************
- * CRNA Mission Trip Guide - JavaScript Code
- * This code handles:
- * - Dropdown selection
- * - Page navigation between selection and result pages
- * - Generating the result details using the Master List for 70 countries
- * - Reset functionality to return to the selection page
- *
- * Deployment:
- * 1. Paste the HTML code into CodePen’s HTML panel.
- * 2. Paste the CSS code into CodePen’s CSS panel.
- * 3. Paste this JavaScript code into CodePen’s JS panel.
- ******************************************************************/
-
-// --------------------
-// Master List Data Structure
-// --------------------
-// Each country object contains keys for all the required fields.
-// For Samaritan’s Purse, if hospital links exist, they are in the SamaritanHospitals array.
 const masterList = {
   "Angola": {
     CDCTravelGuide: "https://wwwnc.cdc.gov/travel/destinations/traveler/none/angola",
