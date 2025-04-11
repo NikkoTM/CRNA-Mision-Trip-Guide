@@ -29,7 +29,6 @@ const masterList = {
     MemorialHermann: "N/A",
     IMR: "N/A",
     IVHQ: "N/A",
-    // Changed IFNAMembership to just the URL.
     IFNAMembership: "https://ifna.site/etusivu/practice/ifna-standards/",
     IFNASub: {
       NurseAnesthetistAssociation: "N/A",
@@ -1015,7 +1014,6 @@ const masterList = {
     MemorialHermann: "https://memorialhermann.org/giving-back/medical-missions",
     IMR: "https://internationalmedicalrelief.org/featured-collections-page/all-relief-missions/",
     IVHQ: "N/A",
-    // Updated IFNAMembership field below:
     IFNAMembership: "https://ifna.site/etusivu/practice/ifna-standards/",
     IFNASub: {
       NurseAnesthetistAssociation: "https://ifna.site/link/poland/",
@@ -1108,7 +1106,7 @@ const masterList = {
   "Samoa": {
     CDCTravelGuide: "https://wwwnc.cdc.gov/travel/destinations/traveler/none/samoa",
     CDCHealthyTravelPackingList: "https://wwwnc.cdc.gov/travel/destinations/samoa/traveler/packing-list",
-    USStateDeptTravelAdvisory: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/samoa-travel-advisory.html",
+    USStateDeptTravelAdvisory: "https://travel.state.gov/content/travel/en/traveladvisories/traveldvisories/samoa-travel-advisory.html".replace("traveldvisories","traveladvisories"),
     SamaritanPurse: "N/A",
     MercyShips: "https://www.mercyships.org/get-involved/volunteer/",
     HVO: "N/A",
@@ -1152,7 +1150,7 @@ const masterList = {
       IFNAWorkingAbroad: "N/A"
     }
   }
-  // End of masterList (70 countries)
+  // End of masterList for 70 countries.
 };
 
 // -----------------------------
@@ -1186,7 +1184,7 @@ countrySelect.addEventListener("change", function () {
 // Helper Functions
 // -----------------------------
 
-// Creates a list item with a hyperlink using provided label and URL.
+// Create a list item with a hyperlink using provided label and URL.
 function createLinkedItem(label, url) {
   const li = document.createElement("li");
   const a = document.createElement("a");
@@ -1197,7 +1195,7 @@ function createLinkedItem(label, url) {
   return li;
 }
 
-// Creates a grey static list item with the given label.
+// Create a grey static list item with the given label.
 function createGreyItem(label) {
   const li = document.createElement("li");
   const span = document.createElement("span");
@@ -1221,6 +1219,7 @@ function generateResult(country) {
     { label: "U.S. State Department Travel Advisory", key: "USStateDeptTravelAdvisory" }
   ];
 
+  // Generate main fields with hyperlinks (if available)
   mainFields.forEach(field => {
     let li;
     if (data[field.key] !== "N/A" && data[field.key]) {
@@ -1231,7 +1230,11 @@ function generateResult(country) {
     resultList.appendChild(li);
   });
 
-  // Samaritan’s Purse – World Medical Mission with hospital sub-items if available
+  // Add the STEP field right after the US State Department Travel Advisory
+  const stepLink = "https://mytravel.state.gov/s/step";
+  resultList.appendChild(createLinkedItem("U.S. State Department Smart Traveler Enrollment Program (STEP)", stepLink));
+
+  // Samaritan’s Purse – World Medical Mission field with hospital sub-items if available
   let liSP = document.createElement("li");
   if (data.SamaritanPurse !== "N/A" && data.SamaritanPurse) {
     const a = document.createElement("a");
@@ -1244,7 +1247,7 @@ function generateResult(country) {
   }
   resultList.appendChild(liSP);
 
-  // Add Samaritan Hospitals if present
+  // Check for Samaritan Hospitals – if present, add as indented sub-items
   if (data.SamaritanHospitals && data.SamaritanHospitals.length > 0) {
     let spSubUl = document.createElement("ul");
     spSubUl.classList.add("sub-item");
@@ -1255,7 +1258,7 @@ function generateResult(country) {
     resultList.appendChild(spSubUl);
   }
 
-  // Other fields to be displayed after Samaritan’s Purse
+  // Continue with the remaining fields
   const otherFields = [
     { label: "Mercy Ships (Hospital Ships Charity)", key: "MercyShips" },
     { label: "Health Volunteers Overseas (HVO – Anesthesia Projects)", key: "HVO" },
@@ -1274,17 +1277,16 @@ function generateResult(country) {
     resultList.appendChild(li);
   });
 
-  // IFNA Membership – special handling
+  // IFNA Membership – use a custom label when not "N/A"
   let liIFNA;
   if (data.IFNAMembership !== "N/A" && data.IFNAMembership) {
-    // Use a custom label for IFNA Membership with the updated text.
     liIFNA = createLinkedItem("IFNA Membership (Yes: See Standards)", data.IFNAMembership);
   } else {
     liIFNA = createGreyItem("IFNA Membership");
   }
   resultList.appendChild(liIFNA);
 
-  // IFNA Sub-items (Nurse Anesthetist Association & IFNA [Country] Working Abroad)
+  // IFNA Sub-items (Nurse Anesthetist Association and IFNA [Country] Working Abroad)
   let subUl = document.createElement("ul");
   subUl.classList.add("sub-item");
   
@@ -1317,7 +1319,7 @@ searchButton.addEventListener("click", function () {
   if (!selectedCountry || !masterList[selectedCountry]) return;
   resultCountryName.textContent = selectedCountry;
   generateResult(selectedCountry);
-  // Hide selection page, show result page
+  // Hide selection page and show result page
   selectionPage.style.display = "none";
   resultPage.style.display = "block";
 });
